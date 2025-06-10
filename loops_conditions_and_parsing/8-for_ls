@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 # This script will displayt the content of the current directory, in a list format, where only the part of the name after the first dash is displayed
-for file in [0-9]*-*; do
-    # Skip if no files match (avoid literal "[0-9]*-*" being processed)
-    [[ -e "$file" ]] || continue
-
-    # Extract the part after digits and dash
-    filtered_name=$(echo "$file" | sed -E 's/^[a-zA-Z0-9]+-//')
-
-    # Print in list format
+shopt -s nullglob  # Prevent literal '*' if no files exist
+for file in *; do
+    # Remove prefix ending at first dash (if any exists)
+    filtered_name=$(echo "$file" | sed -E 's/^[^-]*-//')
     echo "$filtered_name"
-done 
+done
+
