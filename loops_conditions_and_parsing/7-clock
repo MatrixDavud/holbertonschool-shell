@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# This script will display minutes and increment hour after we reach 60 for every hour
+i=0
+while [ $i -le 12 ]; do
+	echo "Hour: $i"
+	j=1
+	while [ $j -le 60 ]; do
+		echo "$j"
+		((j++))
+	done
+	((i++))
+done
+
