@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # This script is displaying "Best School" 10 times , displays bad luck after 4th Best School and good luck after 8th Best School
-i=0
+i=1
 while [ "$i" -le 10 ]; do
     if [ "$i" -eq 4 ]; then
         echo "bad luck"
