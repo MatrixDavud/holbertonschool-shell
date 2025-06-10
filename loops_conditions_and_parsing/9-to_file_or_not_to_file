@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# This script prints 'school file exists' if the file exists, 'school file does not exist' if it doesn't exist. If it exists, and empty: 'school file is empty', if non-empty: 
+#+ 'school file is not empty', if file is regular file: school is a regular file, if the file is not regular: (nothing)
+if [ ! -e "school" ]; then
+    echo "school file does not exist"
+else
+    echo "school file exists"
+    
+    if [ -s "school" ]; then
+        echo "school file is not empty"
+    else
+        echo "school file is empty"
+    fi
+
+    if [ -f "school" ]; then
+        echo "school is a regular file"
+    fi
+fi
