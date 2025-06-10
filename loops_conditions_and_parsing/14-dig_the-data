@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script displays occurences,the visitor IP along with the HTTP status code from the Apache log file and then ordered in descending format by occurences
-awk '{print $10 " " $1 " " $9}' | sort -k10 apache-access.log
+awk '{print $1, $9}' access.log | sort | uniq -c | sort -nr
 
