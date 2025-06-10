@@ -5,7 +5,7 @@ for file in [0-9]*-*; do
     [[ -e "$file" ]] || continue
 
     # Extract the part after digits and dash
-    filtered_name=$(echo "$file" | sed -E 's/^[0-9]+-//')
+    filtered_name=$(echo "$file" | sed -E 's/^[a-zA-Z0-9]+-//')
 
     # Print in list format
     echo "$filtered_name"
