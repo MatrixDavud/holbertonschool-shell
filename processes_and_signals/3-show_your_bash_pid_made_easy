@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script lists PIDs and names of processes with 'bash' in their name, without using ps
+
+for pid in /proc/[0-9]*; do
+    cmd=$(basename "$(readlink -f "$pid/exe" 2>/dev/null)" 2>/dev/null)
+    if [[ $cmd == *bash* ]]; then
+        echo "$(basename "$pid") $cmd"
+    fi
+done
