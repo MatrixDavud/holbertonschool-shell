@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script will terminate 4-to_infinity_and_beyond process.
 to_kill=$(pgrep -f 4-to_infinity_and_beyond)
-kill -9 $to_kill
+kill -9 "$to_kill"
