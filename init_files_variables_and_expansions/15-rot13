@@ -1,18 +1,2 @@
 #!/bin/bash
-
-while IFS= read -r -n1 char; do
-  # If end of input (read returns nothing), break
-  [ -z "$char" ] && continue
-
-  ascii_val=$(printf "%d" "'$char")
-
-  # Uppercase A-M or lowercase a-m
-  if [[ $ascii_val -ge 65 && $ascii_val -le 77 ]] || [[ $ascii_val -ge 97 && $ascii_val -le 109 ]]; then
-    ascii_val=$((ascii_val + 13))
-  # Uppercase N-Z or lowercase n-z
-  elif [[ $ascii_val -ge 78 && $ascii_val -le 90 ]] || [[ $ascii_val -ge 110 && $ascii_val -le 122 ]]; then
-    ascii_val=$((ascii_val - 13))
-  fi
-
-  printf "\\$(printf '%03o' "$ascii_val")"
-done
+tr 'A-Za-z' 'N-ZA-Mn-za-m'
